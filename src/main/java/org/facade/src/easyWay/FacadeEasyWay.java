@@ -1,4 +1,4 @@
-package org.facade.badWay;
+package org.facade.src.easyWay;
 
 import org.facade.src.Amplifier.Amplifier;
 import org.facade.src.Amplifier.ConcreteAmplifier;
@@ -12,35 +12,22 @@ import org.facade.src.StreamingPlayer.ConcreteStreamingPlayer;
 import org.facade.src.StreamingPlayer.StreamingPlayer;
 import org.facade.src.TheaterLights.ConcreteTheaterLights;
 import org.facade.src.TheaterLights.TheaterLights;
+import org.facade.src.Tuner.ConcreteTuner;
+import org.facade.src.Tuner.Tuner;
 
-public class WatchMovieBadWay
-{
-    public static void main(String[] args)
-    {
+public class FacadeEasyWay {
+    public static void main(String[] args) {
         PopcornPopper popper = new ConcretePopcornPopper();
         TheaterLights lights = new ConcreteTheaterLights();
         Screen screen = new ConcreteScreen();
         Projector projector = new ConcreteProjector();
         Amplifier amp = new ConcreteAmplifier();
         StreamingPlayer player = new ConcreteStreamingPlayer();
+        Tuner tuner = new ConcreteTuner();
 
-        popper.on();
-        popper.pop();
-
-        lights.dim();
-
-        screen.down();
-
-        projector.on();
-        projector.setInput(player);
-        projector.wideScreenMode();
-
-        amp.on();
-        amp.setStreamingPlayer(player);
-        amp.setSurroundSound();
-        amp.setVolume(5);
-
-        player.on();
-        player.play("Movie");
+        HomeTheaterFacade homeTheater = new HomeTheaterFacadeImpl(amp, tuner, player, projector, lights, screen,
+                                                                  popper);
+        homeTheater.watchMovie("Pirates of the Caribbean");
+        homeTheater.endMovie();
     }
 }
