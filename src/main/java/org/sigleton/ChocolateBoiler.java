@@ -1,22 +1,10 @@
 package org.sigleton;
 
-public class ChocolateBoiler {
-    private boolean empty;
-    private boolean boiled;
+public enum ChocolateBoiler {
+    UNIQUE_INSTANCE;
 
-    private static ChocolateBoiler uniqueInstance;
-
-    private ChocolateBoiler() {
-        empty = true;
-        boiled = false;
-    }
-
-    public static ChocolateBoiler getInstance() {
-        if (uniqueInstance == null) {
-            uniqueInstance = new ChocolateBoiler();
-        }
-        return uniqueInstance;
-    }
+    private boolean empty = true;
+    private boolean boiled = false;
 
     public void fill() {
         if (isEmpty()) {
