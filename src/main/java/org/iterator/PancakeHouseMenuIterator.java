@@ -2,9 +2,10 @@ package org.iterator;
 
 import org.iterator.menu.MenuItem;
 
+import java.util.Iterator;
 import java.util.List;
 
-public class PancakeHouseMenuIterator implements Iterator {
+public class PancakeHouseMenuIterator implements Iterator<MenuItem> {
     List<MenuItem> menuItems;
     int position = 0;
 
@@ -22,5 +23,10 @@ public class PancakeHouseMenuIterator implements Iterator {
         MenuItem item = menuItems.get(position);
         position = position + 1;
         return item;
+    }
+
+    @Override
+    public void remove() {
+        throw new UnsupportedOperationException("Your are not suppose to delete menu items");
     }
 }
