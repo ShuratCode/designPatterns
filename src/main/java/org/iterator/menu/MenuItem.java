@@ -1,6 +1,6 @@
 package org.iterator.menu;
 
-public class MenuItem {
+public class MenuItem extends MenuComponent {
     String name;
     String description;
     boolean vegetarian;
@@ -13,19 +13,23 @@ public class MenuItem {
         this.price = price;
     }
 
-    public String name() {
+    @Override
+    public String getName() {
         return name;
     }
 
-    public String description() {
+    @Override
+    public String getDescription() {
         return description;
     }
 
-    public boolean vegetarian() {
+    @Override
+    public boolean isVegetarian() {
         return vegetarian;
     }
 
-    public double price() {
+    @Override
+    public double getPrice() {
         return price;
     }
 }

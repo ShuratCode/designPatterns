@@ -4,12 +4,13 @@ import org.iterator.DinerMenuIterator;
 
 import java.util.Iterator;
 
-public class DinerMenu implements Menu {
+public class DinerMenu extends Menu {
     static final int MAX_ITEMS = 6;
     int numOfItems = 0;
     MenuItem[] menuItems;
 
     public DinerMenu() {
+        super("diner", "menu");
         menuItems = new MenuItem[MAX_ITEMS];
 
         addItem("Vegetarian BLT", "(Faking') Bacon with lettuce & tomato on whole wheat", true, 2.99);

@@ -6,10 +6,12 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class PancakeHouseMenu implements Menu{
+public class PancakeHouseMenu extends Menu {
     List<MenuItem> menuItems;
 
     public PancakeHouseMenu() {
+        super("pancake house", "menu");
+
         menuItems = new ArrayList<>();
 
         addItem("K&B's Pancake Breakfast", "Pancakes with scrambled eggs and toast", true, 2.99);
